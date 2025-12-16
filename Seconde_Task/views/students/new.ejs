@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs', { title: 'Create Student' }) %>
+
+<div class="container">
+    <h1>Add New Student</h1>
+
+    <% if (typeof error !== 'undefined') { %>
+        <p style="color: red;">Error: <%= error %></p>
+    <% } %>
+
+    <form action="/students" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="studentId">Student ID (Unique):</label>
+        <input type="text" id="studentId" name="studentId" required>
+
+        <label for="major">Major:</label>
+        <input type="text" id="major" name="major" required>
+
+        <button type="submit">Create Student</button>
+    </form>
+    <p style="margin-top: 20px;"><a href="/students">← Back to List</a></p>
+</div>
+
+<%- include('../partials/footer.ejs') %>

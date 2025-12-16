@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs', { title: student.name + ' Details' }) %>
+
+<div class="container">
+    <h1>Student Details: <%= student.name %></h1>
+
+    <div style="padding: 15px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 20px;">
+        <p><strong>Name:</strong> <%= student.name %></p>
+        <p><strong>Student ID:</strong> <%= student.studentId %></p>
+        <p><strong>Major:</strong> <%= student.major %></p>
+        <p><strong>Enrollment Date:</strong> <%= student.enrollmentDate.toLocaleDateString() %></p>
+    </div>
+
+    <p>
+        <a href="/students/<%= student._id %>/edit">Edit Details</a> |
+        <a href="/students">Back to List</a>
+    </p>
+</div>
+
+<%- include('../partials/footer.ejs') %>

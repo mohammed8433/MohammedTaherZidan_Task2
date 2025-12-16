@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs', { title: 'Edit ' + student.name }) %>
+
+<div class="container">
+    <h1>Edit Student: <%= student.name %></h1>
+
+    <% if (typeof error !== 'undefined') { %>
+        <p style="color: red;">Error: <%= error %></p>
+    <% } %>
+
+    <form action="/students/<%= student._id %>" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= student.name %>" required>
+
+        <label for="studentId">Student ID (Unique):</label>
+        <input type="text" id="studentId" name="studentId" value="<%= student.studentId %>" required>
+
+        <label for="major">Major:</label>
+        <input type="text" id="major" name="major" value="<%= student.major %>" required>
+
+        <button type="submit">Update Student</button>
+    </form>
+    <p style="margin-top: 20px;"><a href="/students/<%= student._id %>">Cancel</a> | <a href="/students">Back to List</a></p>
+</div>
+
+<%- include('../partials/footer.ejs') %>

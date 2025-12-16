@@ -1,0 +1,25 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="/style.css"> </head>
+<header>
+    <nav>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0;">
+            <div>
+                <a href="/students">Student List</a>
+                <a href="/students/new">Add Student</a>
+            </div>
+            <div>
+                <% if (locals.session && locals.session.userId) { %>
+                    <span style="color: lightgray; margin-right: 15px;">
+                        Logged in as: <%= locals.session.username || 'User' %>
+                    </span>
+                    <a href="/auth/logout">Logout</a>
+                <% } else { %>
+                    <a href="/auth/login" style="background-color: #28a745;">Login</a>
+                    <a href="/auth/register" style="background-color: #ffc107; color: #333;">Register</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+</header>
